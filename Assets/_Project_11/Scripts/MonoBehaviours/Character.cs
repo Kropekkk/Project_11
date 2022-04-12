@@ -7,8 +7,11 @@ public class Character : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Animator animator;
+    [SerializeField] private CharacterData characterData;
 
     private CharacterBehaviour currentBehaviour;
+
+    private int health;
 
     private void Start()
     {
@@ -17,6 +20,7 @@ public class Character : MonoBehaviour
 
     public void Init()
     {
+        health = characterData.Health;
         SetCharacterMovement(CharacterBehaviour.Move);
     }
 
@@ -24,7 +28,7 @@ public class Character : MonoBehaviour
     {
         if(currentBehaviour == CharacterBehaviour.Move)
         {
-            rigidbody.velocity = new Vector3(2.5f, 0, 0);
+            rigidbody.velocity = new Vector3(characterData.Speed, 0, 0);
         }
     }
 
@@ -53,12 +57,11 @@ public class Character : MonoBehaviour
 
         await Task.Delay(750);
 
-        enemy.Hit(75);
+        enemy.Hit(characterData.Damage);
 
         if(enemy.IsAlive())
         {
             Attack(enemy);
-            Debug.Log("Takl");
         }
         else
         {
@@ -73,9 +76,6 @@ public class Character : MonoBehaviour
         if(other.gameObject.GetComponent<Enemy>())
         {
             Attack(other.gameObject.GetComponent<Enemy>());
-
-            Debug.Log("Halo123");
-
         }
     }
 }

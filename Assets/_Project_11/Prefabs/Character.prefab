@@ -1701,6 +1701,7 @@ GameObject:
   - component: {fileID: 6102123087119142736}
   - component: {fileID: 6102123087119142737}
   - component: {fileID: 6102123087119142739}
+  - component: {fileID: 137060728}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1786,6 +1787,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 6102123087119142736}
   animator: {fileID: 6102123088957522948}
+  characterData: {fileID: 11400000, guid: c61e5d60fc131f74ab3a9e3ef5c4f839, type: 2}
+--- !u!135 &137060728
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6102123088966891462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6102123088966891464
 GameObject:
   m_ObjectHideFlags: 0
