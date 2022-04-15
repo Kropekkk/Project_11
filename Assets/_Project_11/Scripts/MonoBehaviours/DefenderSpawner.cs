@@ -6,12 +6,12 @@ public class DefenderSpawner : MonoBehaviour
 {
     public List<Character> characters = new List<Character>();
 
-    private void Update()
+    public static DefenderSpawner instance;
+
+
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Spawn(0);
-        }
+        instance = this;
     }
 
     public void Spawn(int id)

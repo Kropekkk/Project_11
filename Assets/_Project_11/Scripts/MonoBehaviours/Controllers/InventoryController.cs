@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class InventoryController : MonoBehaviour
 {
@@ -14,6 +13,16 @@ public class InventoryController : MonoBehaviour
 
     public void Init()
     {
+        foreach(InventorySlot inventorySlot in inventorySlots)
+        {
+            inventorySlot.AddOnBuyListener(OnBuyEvent);
+        }
+    }
 
+    private void OnBuyEvent(int id, int value)
+    {
+        DefenderSpawner.instance.Spawn(id);
+        CurrencyController.instance.currency -= value;
+        CurrencyController.instance.Set();
     }
 }

@@ -5,13 +5,22 @@ using TMPro;
 
 public class CurrencyController : MonoBehaviour
 {
+    public static CurrencyController instance;
+
     [SerializeField] private TextMeshProUGUI currencyValueT;
     
-    private int currency;
+    public int currency;
 
     public void Init()
     {
+        instance = this;
         currency = PlayerPrefs.GetInt("MyCurrency");
+        currency = 1000;
+        currencyValueT.text = "" + currency;
+    }
+
+    public void Set()
+    {
         currencyValueT.text = "" + currency;
     }
 
