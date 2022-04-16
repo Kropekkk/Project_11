@@ -16,6 +16,6 @@ public class DefenderSpawner : MonoBehaviour
 
     public void Spawn(int id)
     {
-        Instantiate(characters[id], transform.position, transform.rotation);
+        Instantiate(characters[id], new Vector3(transform.position.x, transform.position.y, Random.RandomRange(transform.position.z-3f, transform.position.z+3f)), transform.rotation);
     }
 }
